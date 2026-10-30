@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CampusMate - Student Portal</title>
+</head>
+<body bgcolor="#F4F1E8">
+    <!-- HEADER -->
+    <table width="100%" bgcolor="#6B2737" cellpadding="20">
+        <tr>
+            <td>
+                <font color="#DCE2C5" size="7">
+                    <b>CampusMate</b>
+                </font>
+                <br>
+                <font color="white" size="3">
+                    YOUR PERSONAL ACADEMIC PORTAL
+                </font>
+            </td>
+        </tr>
+    </table>
+    <!-- NAVIGATION MENU -->
+    <table width="100%" bgcolor="#68734A" cellpadding="15">
+        <tr>
+            <td align="center"><a href="#home"><font color="white">Home</font></a></td>
+            <td align="center"><a href="#cgpa"><font color="white">CGPA Calculator</font></a></td>
+            <td align="center"><a href="#attendance"><font color="white">Attendance</font></a></td>
+            <td align="center"><a href="#marks"><font color="white">Marks</font></a></td>
+            <td align="center"><a href="#calendar"><font color="white">Academic Calendar</font></a></td>
+        </tr>
+    </table>
+    <!-- HOME SECTION -->
+    <center id="home">
+        <br>
+        <h1><font color="#6B2737">Welcome to CampusMate!</font></h1>
+        <p>Your college life, organized in one place.</p>
+        <p>Calculate your CGPA, track attendance, check marks and manage important academic dates.</p>
+        <br>
+        <h2><font color="#68734A">Everything a Student Needs</font></h2>
+    </center>
+    <table width="100%" cellpadding="15">
+        <tr bgcolor="#E5E8D5">
+            <td align="center"><h3><font color="#6B2737">CGPA Calculator</font></h3>Calculate your semester CGPA.</td>
+            <td align="center"><h3><font color="#6B2737">Attendance Tracker</font></h3>Check your attendance percentage.</td>
+        </tr>
+        <tr bgcolor="#E5E8D5">
+            <td align="center"><h3><font color="#6B2737">Marks Calculator</font></h3>Calculate your exam percentage.</td>
+            <td align="center"><h3><font color="#6B2737">Academic Calendar</font></h3>Track exams and important dates.</td>
+        </tr>
+    </table>
+    <hr color="#68734A">
+    <!-- CGPA CALCULATOR -->
+    <center id="cgpa">
+        <h1><font color="#6B2737">CGPA Calculator</font></h1>
+        <p>Enter your subject grade points and credits.</p>
+    </center>
+    <h3>Subject 1</h3>
+    Grade Point: <input type="number" id="grade1">
+    Credits: <input type="number" id="credit1">
+    <h3>Subject 2</h3>
+    Grade Point: <input type="number" id="grade2">
+    Credits: <input type="number" id="credit2">
+    <h3>Subject 3</h3>
+    Grade Point: <input type="number" id="grade3">
+    Credits: <input type="number" id="credit3">
+    <br><br>
+    <button onclick="cgpa()">Calculate CGPA</button>
+    <p id="cgpaResult"></p>
+    <hr color="#68734A">
+    <!-- ATTENDANCE CALCULATOR -->
+    <center id="attendance">
+        <h1><font color="#6B2737">Attendance Calculator</font></h1>
+        <p>Calculate your attendance percentage.</p>
+    </center>
+    <p>Total Classes:</p>
+    <input type="number" id="total">
+    <p>Classes Attended:</p>
+    <input type="number" id="attended">
+    <br><br>
+    <button onclick="attendance()">Calculate Attendance</button>
+    <p id="attendanceResult"></p>
+    <hr color="#68734A">
+    <!-- MARKS CALCULATOR -->
+    <center id="marks">
+        <h1><font color="#6B2737">Marks Calculator</font></h1>
+        <p>Calculate your examination percentage.</p>
+    </center>
+    <p>Marks Obtained:</p>
+    <input type="number" id="obtained">
+    <p>Total Marks:</p>
+    <input type="number" id="maximum">
+    <br><br>
+    <button onclick="marks()">Calculate Marks</button>
+    <p id="marksResult"></p>
+    <hr color="#68734A">
+    <!-- ACADEMIC CALENDAR -->
+    <center id="calendar">
+        <h1><font color="#6B2737">Academic Calendar</font></h1>
+        <p>Keep track of your important academic events.</p>
+    </center>
+    <table border="1" width="100%" cellpadding="12">
+        <tr bgcolor="#68734A">
+            <th><font color="white">Event</font></th>
+            <th><font color="white">Date</font></th>
+            <th><font color="white">Category</font></th>
+        </tr>
+        <tr><td>Semester Begins</td><td>01 August 2026</td><td>Academic</td></tr>
+        <tr><td>First Internal Examination</td><td>15 September 2026</td><td>Exam</td></tr>
+        <tr><td>Assignment Submission</td><td>25 September 2026</td><td>Deadline</td></tr>
+        <tr><td>Second Internal Examination</td><td>20 October 2026</td><td>Exam</td></tr>
+        <tr><td>Semester Examination</td><td>10 December 2026</td><td>Exam</td></tr>
+        <tr><td>Winter Vacation</td><td>20 December 2026</td><td>Holiday</td></tr>
+    </table>
+    <br>
+    <center><a href="#home"><font color="#6B2737">Back to Home</font></a></center>
+    <hr color="#68734A">
+    <!-- FOOTER -->
+    <center>
+        <h2><font color="#6B2737">CampusMate</font></h2>
+        <p>Plan Better. Study Smarter. Achieve More.</p>
+        <p>Created by a CSE Student</p>
+    </center>
+    <!-- JAVASCRIPT -->
+    <script>
+        function cgpa() {
+            let g1 = document.getElementById("grade1").value;
+            let c1 = document.getElementById("credit1").value;
+            let g2 = document.getElementById("grade2").value;
+            let c2 = document.getElementById("credit2").value;
+            let g3 = document.getElementById("grade3").value;
+            let c3 = document.getElementById("credit3").value;
+            let points = (g1*c1) + (g2*c2) + (g3*c3);
+            let credits = Number(c1) + Number(c2) + Number(c3);
+            let result = points / credits;
+            document.getElementById("cgpaResult").innerHTML = "Your CGPA is " + result;
+        }
+        function attendance() {
+            let total = document.getElementById("total").value;
+            let attended = document.getElementById("attended").value;
+            let result = (attended / total) * 100;
+            document.getElementById("attendanceResult").innerHTML = "Your Attendance is " + result + "%";
+        }
+        function marks() {
+            let obtained = document.getElementById("obtained").value;
+            let maximum = document.getElementById("maximum").value;
+            let result = (obtained / maximum) * 100;
+            document.getElementById("marksResult").innerHTML = "Your Marks Percentage is " + result + "%";
+        }
+    </script>
+</body>
+</html>
